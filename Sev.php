@@ -3,7 +3,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 date_default_timezone_set('Asia/Jakarta');
 
     
-function sate_ayam ($token,$phone,$idhp,$kode_pin){
+function sate_ayam1($token,$phone,$idhp,$kode_pin){
     $url = "https://edtsapp.indomaretpoinku.com/login/api/open/pin/validate-pin";
 
     $curl = curl_init($url);
@@ -12,6 +12,7 @@ function sate_ayam ($token,$phone,$idhp,$kode_pin){
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     
     $headers = array(
+       "Authorization: Bearer ".$token,
        "Content-Type: application/json",
     );
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -221,14 +222,14 @@ $url_login = "https://api.klikindomaret.com/api/Customer/LoginViaMobileApps?isMo
 welcome:
 echo "\n";
 echo "\n";
-echo color("blue","[?] Masukan Token (Beli di Owner|1 Token - 1 Nohp):");
+echo color("yellow","[?] Masukan Token (Beli di Owner|1 Token - 1 Nohp):");
 $input_hp = fopen("php://stdin","r");
 $idhp = trim(fgets($input_hp));
 $idhp = "\"$idhp\"";
 echo color("blue","| Script KLIK INDOMARET & IDM POINT \n");
-echo color("red","| ------------SEVMLN------------ \n");
-echo color("yellow","| WA 0895626860040 | DONATE ISAKU - 085315821924 \n");
-echo color("yellow","| @SEVMLN \n");
+echo color("red","| ------------§€V MLN------------ \n");
+echo color("yellow","| WA 0895626860040 | DONATE I.SAKU - 085315821924 \n");
+echo color("yellow","| @Anteiku Codes \n");
 echo color("green","| Time    :".date('[d-m-Y] [H:i:s]')."\n");
 echo color("purple", "| -------------------------------- \n");
 echo color("green","| 1. Login + Tempel VC Klik \n");
@@ -573,16 +574,16 @@ $header = [
 ];
 ///////////////////////////////////
 echo "".PHP_EOL;
-echo "       __    NO SYSTEM IS SAFE!".PHP_EOL;
+echo "       __    HACKED BY SEVMLN".PHP_EOL;
 echo "      /  \   ~~|~~ ".PHP_EOL;
 echo "     (|00|)    |".PHP_EOL;
 echo "      (==)  --/".PHP_EOL;
 echo "    ___||___  ".PHP_EOL;
 echo "   / _ .. _ \ ".PHP_EOL;
 echo "  //  |  |  \\ Indomaret Pointku V.1.9 (SPECIAL OTP)".PHP_EOL;
-echo " //   |  |   \\ HACK BY SEVMLN".PHP_EOL;
+echo " //   |  |   \\ (NO SYSTEM IS SAFE)".PHP_EOL;
 echo " ||  / /\ \  || ".PHP_EOL;
-echo "_|| _| || |_ ||_  -sevmln-".PHP_EOL;
+echo "_|| _| || |_ ||_  -SEVMLN-".PHP_EOL;
 echo "\|||___||___|||/ ".PHP_EOL;
 echo "".PHP_EOL;
 echo "".PHP_EOL;
@@ -591,7 +592,7 @@ echo "".PHP_EOL;
 echo "Masukan Nomer Hpnya: ";
 $input_hp = fopen("php://stdin","r");
 $no_hp = trim(fgets($input_hp));
-$phone = "\"$no_hp\";
+$phone = "\"$no_hp\"";
 /////////////////////////////////
 ////////////////////////////////
 $data_login = '{"deviceId":'.$idhp.',"phoneNumber":'.$phone.'}';
@@ -625,7 +626,7 @@ if ($pilih == "1"){
     $otp = input_otp();
     // $data_otp = '{"deviceId":'.$idhp.',"otp":'.$otp.',"phoneNumber":'.$phone.'}';
     $data_otp = '{"phoneNumber":'.$phone.',"otp":'.$otp.',"deviceId":'.$idhp.'}';
-    $hasil_otp = sate_ayam ($url_otp, $herder, $data_otp);
+    $hasil_otp = sate_ayam($url_otp, $herder, $data_otp);
     if(empty($hasil_otp)){ echo "kosong";die;}
     $minta_token = json_decode($hasil_otp, true);
     $status = $minta_token['status'];
