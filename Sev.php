@@ -229,7 +229,7 @@ $idhp = "\"$idhp\"";
 echo color("blue","| Script KLIK INDOMARET & IDM POINT \n");
 echo color("red","| ------------§€V MLN------------ \n");
 echo color("yellow","| WA 0895626860040 | DONATE I.SAKU - 085315821924 \n");
-echo color("yellow","| @Anteiku Codes \n");
+echo color("yellow","| @Sev-mlnID \n");
 echo color("green","| Time    :".date('[d-m-Y] [H:i:s]')."\n");
 echo color("purple", "| -------------------------------- \n");
 echo color("green","| 1. Login + Tempel VC Klik \n");
