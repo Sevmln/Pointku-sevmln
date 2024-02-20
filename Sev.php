@@ -19,7 +19,7 @@ function sate_ayam1($token,$phone,$idhp,$kode_pin){
     $data = '{"phoneNumber":'.$phone.',"deviceId":'.$idhp.',"pinCode":'.$kode_pin.'}';
     
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    for debug only!
+    //for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     $resp = curl_exec($curl);
@@ -44,7 +44,7 @@ function create_pin1($token){
     $data = '{"pinCode":"123123"}';
     
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    for debug only!
+    //for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     $resp = curl_exec($curl);
@@ -243,7 +243,7 @@ $inputan = trim(fgets($input_hp));
 
 
 if ($inputan == "1"){ Login
-    echo "Masih Maintenane";
+     echo "Masih Maintenane";
      die;
    
     echo color("yellow", "| Masukan Email/No HP: ");
@@ -255,7 +255,7 @@ if ($inputan == "1"){ Login
     $input_hp = fopen("php://stdin","r");
     $phone = trim(fgets($input_hp));
     $pass = "\"$phone\"";
-         $pass = ""charella"";
+         $pass = "\"charella\"";
 
 
 
@@ -275,28 +275,28 @@ if ($inputan == "1"){ Login
     $token = $hasil_login['ResponseID'];
     $ID = $hasil_login['ResponseObject']['ID'];
     echo color("red","[!] PASTIKAN AKUN INI SUDAH PERNAH LOGIN PERTAMA-KALI DIAPLIKASI/WEB KLIK INDOMARET");
-    print_r($hasil_login);
+     print_r($hasil_login);
 
     tebas_toko:
-    echo color("yellow","| Daerah Kota/Kabupaten: ");
-    $input_hp = fopen("php://stdin","r");
-    $kata_kunci = trim(fgets($input_hp));
+     echo color("yellow","| Daerah Kota/Kabupaten: ");
+     $input_hp = fopen("php://stdin","r");
+     $kata_kunci = trim(fgets($input_hp));
      $nomer = 0;
-    $url = "https://www.klikindomaret.com/checkout/getlistautocompletestore";
-    $data = 'StoreCode='.$kata_kunci.'&customerLatitude=0&customerLongitude=0';
-    $login = sate_ayam($url, ['Content-Type: application/x-www-form-urlencoded'],$data);
-   $data = json_decode($login,true);
-    echo PHP_EOL;
-    for($a=0; $a < count($data); $a++ )
-   {
+     $url = "https://www.klikindomaret.com/checkout/getlistautocompletestore";
+     $data = 'StoreCode='.$kata_kunci.'&customerLatitude=0&customerLongitude=0';
+     $login = sate_ayam($url, ['Content-Type: application/x-www-form-urlencoded'],$data);
+     $data = json_decode($login,true);
+     echo PHP_EOL;
+     for($a=0; $a < count($data); $a++ )
+    {
      $nomer++;
-    $str = str_replace(["\n","\r"],"",$data[$a]['label']);
+     $str = str_replace(["\n","\r"],"",$data[$a]['label']);
      echo color("yellow","| $nomer | ".$str."\n");}
 
     echo color("yellow", "| Masukan KODE TOKO: ");
     $input_hp = fopen("php://stdin","r");
     $KODE_TOKO = trim(fgets($input_hp));
-    $KODE_TOKO = "FTPX";
+      $KODE_TOKO = "FTPX";
 
 
     Cek stok & ambil cookie
@@ -307,7 +307,7 @@ if ($inputan == "1"){ Login
     );
     $toko_anda = cek_get($url_cek_troli,$headers_cekk);
     $resp = json_decode($toko_anda,true);
-
+    /////////////////////////////////////////
     preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $toko_anda, $matches);
     $cookies = array();
     foreach($matches[1] as $item) {
@@ -341,15 +341,15 @@ if ($inputan == "1"){ Login
         "MAMY" => "9c14783e-4920-4193-b2ea-c9e63e4e5e69",
         
         ];
-        echo color("purple", "| Bimoli Minyak Goreng Special Refill 2000Ml - BML2L1 \n");
-        echo color("purple", "| Bimoli Minyak Goreng Special Refill 2000Ml - BML2L \n");
-        echo color("purple", "| Sania Minyak Goreng Refill 2000Ml - SANIA2L \n");
-        echo color("purple", "| Fortune Minyak Goreng Refill  Pch 2000Ml - FTN2L \n");
-        echo color("purple", "| Sovia Minyak Goreng 2L - SOV2L \n");
-        echo color("purple", "| Mamy Poko Pants Standar 30'S L \n");
+         echo color("purple", "| Bimoli Minyak Goreng Special Refill 2000Ml - BML2L1 \n");
+         echo color("purple", "| Bimoli Minyak Goreng Special Refill 2000Ml - BML2L \n");
+         echo color("purple", "| Sania Minyak Goreng Refill 2000Ml - SANIA2L \n");
+         echo color("purple", "| Fortune Minyak Goreng Refill  Pch 2000Ml - FTN2L \n");
+         echo color("purple", "| Sovia Minyak Goreng 2L - SOV2L \n");
+         echo color("purple", "| Mamy Poko Pants Standar 30'S L \n");
 
          echo color("yellow", "| Masukan kode barang: ");
-        $idproduk_input = strtoupper(trim(fgets(STDIN)));
+         $idproduk_input = strtoupper(trim(fgets(STDIN)));
 
         $idproduk_input = "TC";
 
@@ -395,7 +395,7 @@ if ($inputan == "1"){ Login
     echo color("yellow","| Masukan Kode Voucher: ");
     $idproduk_input = strtoupper(trim(fgets(STDIN)));
     $idproduk_input = "\"$idproduk_input\"";
-    $idproduk_input = $kupon_6;
+     $idproduk_input = $kupon_6;
     $url = 'https://api.klikindomaret.com/api/Voucher/BookingVoucherCoupon?mfp_id='.$ID;
     $header_vc = ["Content-Type: application/json"];
     $curl = curl_init($url);
@@ -407,6 +407,8 @@ if ($inputan == "1"){ Login
     $data = '{"Code":'.$idproduk_input.',"ShoppingCartID":'.$shopcartid.',"CustomerID":'.$CustomerID.',"RegionID":'.$RegionID.',"SalesOrderNo":"","Nominal":"","DeviceID":'.$idhp.',"ShoppingCartPackageID":null}';
 
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+    //for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
@@ -428,15 +430,15 @@ if ($inputan == "1"){ Login
 
 
  Request URL: https:www.klikindomaret.com/checkout/addvoucher
-Request Method: POST
-Status Code: 200 
-Remote Address: 104.22.25.142:443
-Referrer Policy: strict-origin-when-cross-origin
-data = "code: tf"
+ Request Method: POST
+ Status Code: 200 
+ Remote Address: 104.22.25.142:443
+ Referrer Policy: strict-origin-when-cross-origin
+ data = "code: tf"
 
 
 
----------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------
 
 
 
@@ -501,7 +503,7 @@ data = "code: tf"
         }else{ echo "$pesan_daftar \n"; die;}
 
 
-}elseif($inputan == "3"){ cek_Stock
+}elseif($inputan == "3"){ Cek_Stock
     
     echo color("yellow","| Daerah Kota/Kabupaten: ");
     $input_hp = fopen("php://stdin","r");
@@ -548,9 +550,10 @@ goto welcome;
 }elseif($inputan == "6"){
     
 
-    * NO SYSTEM IS SAFE*
+    /* FUNGSI INI BIARKAN SAJA
+    SUPAYA TIDAK EROR BOSSKU
     
-    
+    */
 
     
 Script php
@@ -568,18 +571,18 @@ $header = [
     'Content-Type: application/json',
     'user-agent: okhttp/4.9.0',
 ];
-
+///////////////////////////////////
 echo "".PHP_EOL;
-echo "       __    I M WASS HERE NO SYSTEM IS SAFE!".PHP_EOL;
+echo "       __    hacked by sevmln!".PHP_EOL;
 echo "      /  \   ~~|~~ ".PHP_EOL;
 echo "     (|00|)    |".PHP_EOL;
 echo "      (==)  --/".PHP_EOL;
 echo "    ___||___  ".PHP_EOL;
 echo "   / _ .. _ \ ".PHP_EOL;
 echo "  //  |  |  \\ Indomaret Pointku V.1.9 (SPECIAL OTP)".PHP_EOL;
-echo " //   |  |   \\ HACK BY SEVMLN".PHP_EOL;
+echo " //   |  |   \\ (no system is safe)".PHP_EOL;
 echo " ||  / /\ \  || ".PHP_EOL;
-echo "_|| _| || |_ ||_  -Sevmln-".PHP_EOL;
+echo "_|| _| || |_ ||_  -sevmln-".PHP_EOL;
 echo "\|||___||___|||/ ".PHP_EOL;
 echo "".PHP_EOL;
 echo "".PHP_EOL;
@@ -589,8 +592,8 @@ echo "Masukan Nomer Hpnya: ";
 $input_hp = fopen("php://stdin","r");
 $no_hp = trim(fgets($input_hp));
 $phone = "\"$no_hp\"";
-    
-
+/////////////////////////////////
+////////////////////////////////
 $data_login = '{"deviceId":'.$idhp.',"phoneNumber":'.$phone.'}';
 
 
@@ -600,16 +603,16 @@ $pesan_login_1 = $pesan_login['message'];
 echo "| Pesan : $pesan_login_1".PHP_EOL;
 if ($pesan_login_1 == "Phone Number not valid"){die;}
  $member = $pesan_login['data']['id'];
-if ($member =='0'){
-    echo "Akun ini fresh loading otp bossku!".PHP_EOL;
-    $kondisi = "sukses";
-}elseif($member !== '0'){echo "Akun Lama bossku coba lagi".PHP_EOL;
-   $kondisi = "gagal"; die;
-}
-$pesan_login = $pesan_login['message'];
+ if ($member =='0'){
+     echo "Akun ini fresh loading otp bossku!".PHP_EOL;
+     $kondisi = "sukses";
+ }elseif($member !== '0'){echo "Akun Lama bossku coba lagi".PHP_EOL;
+     $kondisi = "gagal"; die;
+ }
+ $pesan_login = $pesan_login['message'];
  echo "Pesan : $pesan_login".PHP_EOL;
-if ($pesan_login == "Phone Number not valid"){die;}
-========================================
+ if ($pesan_login == "Phone Number not valid"){die;}
+////////////////////////////////////////
 echo "| 1. OTP SMS".PHP_EOL;
 echo "| OTP WA SEDANG DIMATIKAN!".PHP_EOL;
 echo "| 4. Untuk exit".PHP_EOL;
@@ -699,8 +702,8 @@ if ($cekpin['data'] !== true){
         echo "| Berhasil! \n";}else{goto validate_pin;} 
         $kode_pin = "\"$kode_pin\"";
      $data_pin_valid = '{"phoneNumber":'.$phone.',"deviceId":'.$idhp.',"pinCode":'.$kode_pin.'}';
-    $data_pin_valid ='{"phoneNumber":"085782946968","deviceId":"1d26e1f5bd870e63fe0c4a6959ebe237","pinCode":"123456"}';
-    print_r($token);
+     $data_pin_valid ='{"phoneNumber":"085782946968","deviceId":"1d26e1f5bd870e63fe0c4a6959ebe237","pinCode":"123456"}';
+     print_r($token);
     $valid_pin = json_decode(sate_ayam1($token,$phone,$idhp,$kode_pin),true);
         if ($valid_pin['status'] !== "00"){
             echo "| Pin salah/Pin salah melebihi batas \n";
@@ -731,10 +734,10 @@ if ($cekpin['data'] !== true){
         echo "$minta_data".PHP_EOL;
 
 
-* ------------------------------------------------------------------------------------- *
+/* ------------------------------------------------------------------------------------- */
 
 
-* ======================================================================================== *
+/* ======================================================================================== */
 
 
 
