@@ -407,8 +407,6 @@ if ($inputan == "1"){ Login
     $data = '{"Code":'.$idproduk_input.',"ShoppingCartID":'.$shopcartid.',"CustomerID":'.$CustomerID.',"RegionID":'.$RegionID.',"SalesOrderNo":"","Nominal":"","DeviceID":'.$idhp.',"ShoppingCartPackageID":null}';
 
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-
-    for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
